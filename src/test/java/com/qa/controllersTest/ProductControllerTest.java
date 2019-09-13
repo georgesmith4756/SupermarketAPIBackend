@@ -29,6 +29,7 @@ public class ProductControllerTest {
     @Test
     public void testGetProduct(){
         Product product = new Product();
+        product.setId(10L);
         product.setProductName("Chair");
         product.setCost(50);
         product.setStock(10);
@@ -39,6 +40,7 @@ public class ProductControllerTest {
 
         assertEquals(productController.getProduct(0L).getProductName(),"Chair");
         assertEquals(productController.getProduct(0L).getStock(),10);
+        assertEquals(productController.getProduct(0L).getId(),new Long(10));
 
     }
 
@@ -61,12 +63,12 @@ public class ProductControllerTest {
 
     @Test
     public void testCreateProduct(){
-        Product product = new Product();
-        product.setProductName("Chair");
-        product.setCost(50);
-        product.setStock(10);
-        product.setCategory("Furniture");
-        product.setDescription("Can be sat on");
+        Product product = new Product("Chair",50,10,"Furniture","Can be sat on");
+//        product.setProductName("Chair");
+//        product.setCost(50);
+//        product.setStock(10);
+//        product.setCategory("Furniture");
+//        product.setDescription("Can be sat on");
 
         when(repository.saveAndFlush(product)).thenReturn(product);
 
@@ -111,6 +113,6 @@ public class ProductControllerTest {
         assertEquals(productController.updateProduct(0L,product2).getProductName(),"Small Chair");
         assertEquals(productController.updateProduct(0L,product2).getDescription(),"A small chair");
         assertEquals(productController.updateProduct(0L,product2).getCategory(),"House");
-        
+
     }
 }
