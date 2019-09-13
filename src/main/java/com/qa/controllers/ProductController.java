@@ -39,7 +39,11 @@ public class ProductController {
     @RequestMapping(value = "product/{id}",method = RequestMethod.PUT)
     public Product updateProduct(@PathVariable Long id,@RequestBody Product product){
         Product existing = repository.findOne(id);
-        //existing.setSomething(product.getsomething());
+        existing.setProductName(product.getProductName());
+        existing.setCost(product.getCost());
+        existing.setStock(product.getStock());
+        existing.setDescription(product.getDescription());
+        existing.setCategory(product.getCategory());
         repository.saveAndFlush(existing);
         return existing;
     }

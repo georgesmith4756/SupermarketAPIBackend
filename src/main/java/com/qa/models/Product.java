@@ -13,7 +13,7 @@ public class Product {
     private String productName;
     private int cost;
     private int stock;
-    private String catagory;
+    private String category;
     private String description;
 
     public Long getId() {
@@ -48,12 +48,12 @@ public class Product {
         this.stock = stock;
     }
 
-    public String getCatagory() {
-        return catagory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCatagory(String catagory) {
-        this.catagory = catagory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getDescription() {
@@ -64,11 +64,11 @@ public class Product {
         this.description = description;
     }
 
-    public Product(String productName, int cost, int stock, String catagory, String description) {
+    public Product(String productName, int cost, int stock, String category, String description) {
         this.productName = productName;
         this.cost = cost;
         this.stock = stock;
-        this.catagory = catagory;
+        this.category = category;
         this.description = description;
     }
 
