@@ -111,5 +111,6 @@ public class ProductControllerTest {
         assertEquals(productController.updateProduct(0L,product2).getProductName(),"Small Chair");
         assertEquals(productController.updateProduct(0L,product2).getDescription(),"A small chair");
         assertEquals(productController.updateProduct(0L,product2).getCategory(),"House");
+        
     }
 }
