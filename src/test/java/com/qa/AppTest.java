@@ -13,5 +13,6 @@ public class AppTest
     public void shouldAnswerWithTrue(){
         app = new App();
         app.main(new String[]{});
+
     }
 }
