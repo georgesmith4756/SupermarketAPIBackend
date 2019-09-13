@@ -94,7 +94,22 @@ public class ProductControllerTest {
 
     @Test
     public void updateProduct(){
-        
+        Product product1 = new Product();
+        product1.setProductName("Big Chair");
+        product1.setCost(100);
+        product1.setDescription("A big chair");
+        product1.setCategory("Furniture");
+        Product product2 = new Product();
+        product2.setProductName("Small Chair");
+        product2.setCost(50);
+        product2.setDescription("A small chair");
+        product2.setCategory("House");
 
+        when(repository.findOne(0L)).thenReturn(product1);
+        when(repository.saveAndFlush(product1)).thenReturn(product1);
+
+        assertEquals(productController.updateProduct(0L,product2).getProductName(),"Small Chair");
+        assertEquals(productController.updateProduct(0L,product2).getDescription(),"A small chair");
+        assertEquals(productController.updateProduct(0L,product2).getCategory(),"House");
     }
 }
